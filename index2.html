@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"; rel="stylesheet"><link rel='stylesheet' type='text/css' media='screen' href='assets/css/style.css'>
+    <script type="text/javascript" src="assets/js/util2.js"></script>
+</head>
+<body>
+    <div class="cabecalho">
+        <div class="welcome"></div>
+        <button id="btn_sair">
+            Sair
+        </button>
+    </div>
+    <div class="corpo lista">
+        <div class="pesquisa">
+            <select id="selectPrincipal">
+                <option disabled>Selecione a moeda</option>
+            </select>
+            <button class="inverter-moedas">Inverter</button>
+            <select id="selectSecundario">
+                <option disabled>Selecione a moeda</option>
+            </select>
+            <button class="inverter-moedas">Converter</button>
+        </div>
+        <div class="resultados">
+            <div class="moeda-principal">
+                <div class="listas">
+                    <div class="left">
+                        <div>
+                            <h2 id="sigla-moeda 1">Sigla</h2>
+                            <h3 id="nome-moeda 1">Moeda 1</h2>
+                            <h4 id="valor-moeda 1">Valor da Moeda</h3>
+                        </div>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>5</li>
+                            <li>10</li>
+                            <li>100</li>
+                            <li>1000</li>
+                            <li>5000</li>
+                            <li>10000</li>
+                            <li>50000</li>
+                            <li>100000</li>                     
+                        </ul>
+                    </div>
+                    <div class="rigth">
+                        <div>
+                            <h2 id="sigla-moeda 2">Sigla</h2>
+                            <h3 id="nome-moeda 2">Moeda 2</h2>
+                            <h4 id="valor-moeda 2">Valor da Moeda</h3>
+                        </div>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>5</li>
+                            <li>10</li>
+                            <li>100</li>
+                            <li>1000</li>
+                            <li>5000</li>
+                            <li>10000</li>
+                            <li>50000</li>
+                            <li>100000</li>                     
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="contas">
+                <div>
+                    <label for="valor-desejado">Digite o valor que quer converter:</label>
+                    <input type="number" id="valor-desejado">
+                </div>
+                <div>
+                    <label for="valor-final">Valor convertido: </label>
+                    <input type="text" disabled>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
