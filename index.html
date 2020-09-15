@@ -6,7 +6,6 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"; rel="stylesheet"><link rel='stylesheet' type='text/css' media='screen' href='assets/css/style.css'>
-    <script type="text/javascript" src="js/util.js"></script>
 </head>
 <body>
     <div class="cabecalho">
@@ -30,6 +29,7 @@
                         <div>
                             <label for="pass">Senha (Minimo de 8 caracteres):</label>
                             <input type="password" id="pass" placeholder="Insira a Senha" name="password" required>
+                            <span>Senha ou email incorretos</span>
                         </div>
                         <button id="logar">Logar</button>
                         <button id="cadastrar">Cadastrar</button>
@@ -38,15 +38,18 @@
                         <div>
                             <label for="username">e-mail:</label>
                             <br>
-                            <input type="email" id="username" placeholder="Insira o e-mail" name="username" required="required">
+                            <input type="email" id="username" placeholder="Insira o e-mail" name="username" required onblur="validaEmail(this.checkValidity())" onfocus="tiraSpanEmail()">
+                            <span id="span-email"></span>
                         </div>
                         <div>
                             <label for="pass">Senha (Minimo de 8 caracteres):</label>
-                            <input type="password" id="pass" placeholder="Insira a Senha" name="password" required>
+                            <input type="password" id="pass" placeholder="Insira a Senha" name="password" required oninput="validaSenha(this.value)">
+                            <span id="span-senha1"></span>
                         </div>
                         <div>
-                            <label for="pass">Confime a senha:</label>
-                            <input type="password" id="pass" placeholder="Insira a Senha" name="password" required>
+                            <label for="pass2">Confime a senha:</label>
+                            <input type="password" id="pass2" placeholder="Insira a Senha" name="password" required oninput="senhaIgual()">
+                            <span id="span-senha2"></span>
                         </div>
                         <button id="cadastrar">Cadastrar</button>
                     </div>

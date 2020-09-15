@@ -83,7 +83,7 @@ function converter(){
     var sigla = moedasPrincipal.options[moedasPrincipal.selectedIndex].value;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.overrideMimeType = ("application/JSON");
-    xmlhttp.open("GET", "https://v6.exchangerate-api.com/v6/6a20c6c2ba200f1ad3b91342/latest/" + sigla, true);
+    xmlhttp.open("GET", "https://v6.exchangerate-api.com/v6/50dd9fbe9f57bdc4af1b2bbd/latest/" + sigla, true);
     xmlhttp.onload =  function (){
         var resposta = JSON.parse(xmlhttp.responseText).conversion_rates;
         pegaValores(resposta);
@@ -126,7 +126,7 @@ function populaLista2(sigla, valor, nome){
     doc_sigla.innerHTML = sigla;
     doc_nome.innerHTML = nome;
     doc_valor.innerHTML = valor;
-
+    
     document.getElementById('1').textContent = (1*valor).toFixed(4);
     document.getElementById('2').textContent = (2*valor).toFixed(4);
     document.getElementById('5').textContent = (5*valor).toFixed(4);
@@ -136,12 +136,8 @@ function populaLista2(sigla, valor, nome){
     document.getElementById('5000').textContent = (5000*valor).toFixed(4);
     document.getElementById('10000').textContent = (10000*valor).toFixed(4);
     document.getElementById('50000').textContent = (50000*valor).toFixed(4);
-    document.getElementById('100000').textContent = (100000*valor).toFixed(4);
-    
-    
+    document.getElementById('100000').textContent = (100000*valor).toFixed(4);   
 }
-
-
 function converteValores(valor){
     var valorConvertido = document.getElementById('valor-convertido');
     valorConvertido.value = (valor*valorMoeda2).toFixed(3);

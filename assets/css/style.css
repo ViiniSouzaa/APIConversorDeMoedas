@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Grotesk BQ Light';
-    src: url(../assets/fonts/akzidenz-grotesk-bq-light.otf);
+    src: url(../fonts/akzidenz-grotesk-bq-light.otf);
 }
 
 html, body, a, p, h1, h2, h3, h4, h5, h6 {
@@ -194,6 +194,9 @@ button {
     border-radius: 50px;
     width: 180px;
 }
+.left > div > h3, .rigth > div h3{
+    height: 45px;
+}
 
 .rigth {
     float: rigth;
@@ -255,5 +258,14 @@ input[type=text], input[type=password], input[type=number], input[type=email]{
 
 #cadastrar {
     float: left;
+}
+
+span {
+    color: red;
+    display: none;
+}
+
+input:invalid {
+    border: 1px solid red;    
 }
 
