@@ -64,4 +64,89 @@ window.onload = function () {
         option = new Option(moedas[moeda], moeda);
         moedasSecundario.options[moedasSecundario.options.length] = option;
     }
+    moedasPrincipal.selectedIndex = 5;
+    moedasSecundario.selectedIndex = 50;
+    converter();
 };
+
+function inverter(){
+    var moedasPrincipal = document.getElementById('selectPrincipal');
+    var moedasSecundario = document.getElementById('selectSecundario');
+    var valorPrincipal = moedasPrincipal.selectedIndex;
+    var valorSecundario = moedasSecundario.selectedIndex;
+    moedasPrincipal.selectedIndex = valorSecundario;
+    moedasSecundario.selectedIndex = valorPrincipal;
+}
+
+function converter(){
+    var moedasPrincipal = document.getElementById('selectPrincipal');
+    var sigla = moedasPrincipal.options[moedasPrincipal.selectedIndex].value;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.overrideMimeType = ("application/JSON");
+    xmlhttp.open("GET", "https://v6.exchangerate-api.com/v6/6a20c6c2ba200f1ad3b91342/latest/" + sigla, true);
+    xmlhttp.onload =  function (){
+        var resposta = JSON.parse(xmlhttp.responseText).conversion_rates;
+        pegaValores(resposta);
+    }
+    xmlhttp.send();
+}
+var valorMoeda2;
+function pegaValores(resposta){
+    var moedasPrincipal = document.getElementById('selectPrincipal');
+    var moedasSecundario = document.getElementById('selectSecundario');
+    var siglaPrincipal = moedasPrincipal.options[moedasPrincipal.selectedIndex].value;
+    var siglaSecundaria = moedasSecundario.options[moedasSecundario.selectedIndex].value;
+    var nomeMoeda1 = moedasPrincipal.options[moedasPrincipal.selectedIndex].text;
+    var nomeMoeda2 = moedasSecundario.options[moedasSecundario.selectedIndex].text;
+
+    for (moeda in resposta) {
+        if(moeda == siglaSecundaria){
+            valorMoeda2 = resposta[moeda];
+        }
+    }
+    populaLista1(siglaPrincipal, nomeMoeda1);
+    populaLista2(siglaSecundaria, valorMoeda2, nomeMoeda2);
+}
+
+function populaLista1(sigla, nome){
+    var doc_sigla = document.getElementById('sigla-moeda-1');
+    var doc_nome = document.getElementById('nome-moeda-1');
+    var doc_valor =  document.getElementById('valor-moeda-1');
+
+    doc_sigla.innerHTML = sigla;
+    doc_nome.innerHTML = nome;
+    doc_valor.innerHTML = 1;
+}
+
+function populaLista2(sigla, valor, nome){
+    var doc_sigla = document.getElementById('sigla-moeda-2');
+    var doc_nome = document.getElementById('nome-moeda-2');
+    var doc_valor =  document.getElementById('valor-moeda-2');
+
+    doc_sigla.innerHTML = sigla;
+    doc_nome.innerHTML = nome;
+    doc_valor.innerHTML = valor;
+
+    criaNovaLinha(1*valor);
+    criaNovaLinha(2*valor);
+    criaNovaLinha(5*valor);
+    criaNovaLinha(10*valor);
+    criaNovaLinha(100*valor);
+    criaNovaLinha(1000*valor);
+    criaNovaLinha(5000*valor);
+    criaNovaLinha(10000*valor);
+    criaNovaLinha(50000*valor);
+    criaNovaLinha(100000*valor);
+}
+
+function criaNovaLinha(valor){
+    var listaValoresConvertidos = document.getElementById('valores-convertidos');
+    var novaLinha = document.createElement('li');
+    novaLinha.textContent = valor;
+    listaValoresConvertidos.appendChild(novaLinha);
+}
+
+function converteValores(valor){
+    var valorConvertido = document.getElementById('valor-convertido');
+    valorConvertido.value = valor*valorMoeda2;
+}
