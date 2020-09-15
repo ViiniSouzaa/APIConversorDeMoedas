@@ -127,26 +127,22 @@ function populaLista2(sigla, valor, nome){
     doc_nome.innerHTML = nome;
     doc_valor.innerHTML = valor;
 
-    criaNovaLinha(1*valor);
-    criaNovaLinha(2*valor);
-    criaNovaLinha(5*valor);
-    criaNovaLinha(10*valor);
-    criaNovaLinha(100*valor);
-    criaNovaLinha(1000*valor);
-    criaNovaLinha(5000*valor);
-    criaNovaLinha(10000*valor);
-    criaNovaLinha(50000*valor);
-    criaNovaLinha(100000*valor);
+    document.getElementById('1').textContent = (1*valor).toFixed(4);
+    document.getElementById('2').textContent = (2*valor).toFixed(4);
+    document.getElementById('5').textContent = (5*valor).toFixed(4);
+    document.getElementById('10').textContent = (10*valor).toFixed(4);
+    document.getElementById('100').textContent = (100*valor).toFixed(4);
+    document.getElementById('1000').textContent = (1000*valor).toFixed(4);
+    document.getElementById('5000').textContent = (5000*valor).toFixed(4);
+    document.getElementById('10000').textContent = (10000*valor).toFixed(4);
+    document.getElementById('50000').textContent = (50000*valor).toFixed(4);
+    document.getElementById('100000').textContent = (100000*valor).toFixed(4);
+    
+    
 }
 
-function criaNovaLinha(valor){
-    var listaValoresConvertidos = document.getElementById('valores-convertidos');
-    var novaLinha = document.createElement('li');
-    novaLinha.textContent = valor;
-    listaValoresConvertidos.appendChild(novaLinha);
-}
 
 function converteValores(valor){
     var valorConvertido = document.getElementById('valor-convertido');
-    valorConvertido.value = valor*valorMoeda2;
+    valorConvertido.value = (valor*valorMoeda2).toFixed(3);
 }

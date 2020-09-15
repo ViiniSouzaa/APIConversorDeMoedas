@@ -163,7 +163,7 @@ button {
 }
 
 .listas > div > ul {
-    display: block;
+    display: contents;
     justify-content: center;
     align-items: center;
 }
@@ -172,9 +172,9 @@ button {
     list-style-type: none;
     background-color: #13aa52;
     border: 1px #FFF solid;
-    border-radius: 50%;
+    border-radius: 50px;
     margin: 8px;
-    width: 80px;
+    width: 160px;
     height: 60px;
     align-items: center;
     display: flex;
