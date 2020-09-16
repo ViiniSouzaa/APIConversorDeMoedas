@@ -19,10 +19,47 @@ document.getElementById("cadastrar")
         document.getElementById("login").style.display = "none";
     });
 
+document.getElementById('btn-cadastrar')
+    .addEventListener("click", function(){
+        console.log(email_valido,senha_valida,senha_igual);
+        if(!email_valido || !senha_valida || !senha_igual){
+            alert("Tem algo errado com seus Dados, verefique e tente novamente!");
+        }else{
+            var login = new XMLHttpRequest();
+            login.open("POST", "https://reqres.in/api/login",true);
+            login.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            login.send(JSON.stringify({ "email": "eve.holt@reqres.in", "password": "pistol"}));
+
+            login.onload = function (){
+                console.log(JSON.parse(login.responseText).token);
+                localStorage.setItem('token', JSON.parse(login.responseText).token)
+                localStorage.setItem('email', email_validado);
+                localStorage.setItem('senha', senha_nao_confirmada);
+            }
+            document.getElementById("cadastro").style.display = "none";
+            document.getElementById("login").style.display = "block";
+        }
+    });
+
+document.getElementById('logar')
+    .addEventListener("click", function(){
+        var login = new XMLHttpRequest();
+            login.open("POST", "https://reqres.in/api/login",true);
+            login.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            login.send(JSON.stringify({ "email": "eve.holt@reqres.in", "password": "pistol"}));
+
+            login.onload = function (){
+                if(JSON.parse(login.responseText).token == localStorage.getItem('token')){
+                    location.href = 'index2.html';
+                }
+            }
+    });
+
 var email_valido = false;
 var senha_valida = false;
 var senha_igual = false;
 
+var email_validado;
 function validaEmail(email){
     var spanEmail = document.getElementById('span-email');
     if(!email){
@@ -32,6 +69,7 @@ function validaEmail(email){
     }else {
         spanEmail.style.display = "none";
         email_valido = true;
+        email_validado = email;
     }
 }
 
@@ -43,15 +81,18 @@ function tiraSpanEmail(){
 var senha_nao_confirmada;
 function validaSenha(senha){
     var spanSenha = document.getElementById('span-senha1');
+    var spanSenhaLogin = document.getElementById('span-senha-login');
     senha_nao_confirmada = senha;
     if(senha.length < 8 && senha.length > 0){
         senha_valida = false;
-        spanSenha.style.display = "block";
-        spanSenha.innerHTML = "Digite uma senha válida!";
+            spanSenha.style.display = "block";
+            spanSenha.innerHTML = "Digite uma senha válida!";
+            spanSenhaLogin.style.display = "block";
+            spanSenhaLogin.innerHTML = "Digite uma senha válida!";
     }else{
         senha_valida = true;
         spanSenha.style.display = "none";
-        spanSenha.innerHTML = "";
+        spanSenhaLogin.style.display = "none";
     }
 }
 
@@ -69,3 +110,4 @@ function senhaIgual(){
         spanSenha2.innerHTML = "As senhas não coincidem!";
     }
 }
+
