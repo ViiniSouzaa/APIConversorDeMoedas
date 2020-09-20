@@ -108,7 +108,7 @@ function pegaValores(resposta){
     }
     populaLista1(siglaPrincipal, nomeMoeda1);
     populaLista2(siglaSecundaria, valorMoeda2, nomeMoeda2);
-    converteValores(1);
+    converteValores(1); 
 }
 
 function populaLista1(sigla, nome){

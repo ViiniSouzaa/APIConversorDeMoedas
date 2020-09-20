@@ -67,7 +67,7 @@ button {
 }
 
 .corpo.lista {
-    height: 150vh   ;
+    height: 150vh;
 }
 
 .meio {
@@ -281,6 +281,10 @@ input:invalid {
 
 @media screen and (max-width: 1000px){
 
+    .corpo.lista {
+        height: 100vh !important; 
+    }
+
     .pesquisa {
         height: 200px;
         width: 300px;
@@ -303,11 +307,14 @@ input:invalid {
 
     .resultados {
         justify-content: center;
-        margin-top: -120px;
     }
 }
 
 @media screen and (max-width: 800px){
+
+    .corpo.lista {
+        height: 100vh !important; 
+    }
 
     .cabecalho > button{
         width: 100px;
@@ -357,7 +364,11 @@ input:invalid {
 
 
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px){7
+
+    .corpo.lista {
+        height: 100vh !important; 
+    }
 
     .pesquisa {
         margin-left: 20%;
@@ -410,6 +421,10 @@ input:invalid {
 }
 
 @media screen and (max-width: 400px){
+
+    .corpo.lista {
+        height: 100vh !important; 
+    }
 
     .pesquisa {
         margin-left: 10%;
