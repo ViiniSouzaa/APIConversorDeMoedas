@@ -16,7 +16,7 @@ html, body, a, p, h1, h2, h3, h4, h5, h6 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;    
     position: initial;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 
@@ -132,6 +132,11 @@ button {
     margin-inline-end: 0px;
 }
 
+.meio3 h2, meio h4 {
+    color: #0b4130;
+    margin: 15px;
+}
+
 .pesquisa {
     height: 100px;
     width: 100%;
@@ -189,12 +194,12 @@ button {
     justify-content: center;
 }
 
-.left > div, .rigth > div {
+.dados-moedas{
     background-color: #13aa52;
     border-radius: 50px;
     width: 180px;
 }
-.left > div > h3, .rigth > div h3{
+.dados-moedas h3{
     height: 45px;
 }
 
@@ -209,6 +214,11 @@ button {
     display: block;
     justify-content: center;
     align-items: center;
+}
+
+.valores-convertidos-unico {
+    display: none;
+    color: white;
 }
 
 .contas > div:first-child {
@@ -269,3 +279,185 @@ input:invalid {
     border: 1px solid red;    
 }
 
+@media screen and (max-width: 1000px){
+
+    .pesquisa {
+        height: 200px;
+        width: 300px;
+        align-items: center;
+        display: block;
+        justify-content: center;
+        text-align: center;
+        margin-left: 25%;
+    }
+
+    .moeda-principal{
+        display: none;
+    }
+
+    .valores-convertidos-unico {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .resultados {
+        justify-content: center;
+        margin-top: -120px;
+    }
+}
+
+@media screen and (max-width: 800px){
+
+    .cabecalho > button{
+        width: 100px;
+    }
+     
+    .meio {
+        width: 600px;
+        height: 600px;
+        margin-top: -75px;
+    }
+
+    input[type=text], input[type=password], input[type=number], input[type=email]{
+        width: 80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    #cadastro > button{
+        width: 80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        margin-top: 20px;
+    }
+
+    span {
+        color: red;
+        display: none;
+    }
+    
+    input:invalid {
+        border: 1px solid red;    
+    }
+
+    button {
+        font-size: 14px;
+        width: 150px;
+        margin-top: 10px;
+    }
+
+    .cabecalho > button {
+        margin-top: 10px;
+    }
+}
+
+
+
+@media screen and (max-width: 600px){
+
+    .pesquisa {
+        margin-left: 20%;
+    }
+
+    .meio {
+        width: 500px;
+        height: 500px;
+        margin-top: -75px;
+    }
+
+    input[type=text], input[type=password], input[type=number], input[type=email]{
+        width: 80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    #cadastro > button{
+        width: 80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        margin-top: 20px;
+    }
+
+    span {
+        color: red;
+        display: none;
+    }
+    
+    input:invalid {
+        border: 1px solid red;    
+    }
+
+    button {
+        font-size: 14px;
+        width: 150px;
+        margin-top: 10px;
+    }
+
+    .cabecalho > button {
+        margin-top: 10px;
+    }
+
+    #cadastro {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 400px){
+
+    .pesquisa {
+        margin-left: 10%;
+    }
+
+    .meio {
+        width: 500px;
+        height: 500px;
+        margin-top: -75px;
+        margin-left: -60px;
+    }
+
+    input[type=text], input[type=password], input[type=number], input[type=email]{
+        width: 80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    #cadastro > button{
+        width: 80%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        margin-top: 20px;
+    }
+
+    span {
+        color: red;
+        display: none;
+    }
+    
+    input:invalid {
+        border: 1px solid red;    
+    }
+
+    button {
+        font-size: 14px;
+        width: 150px;
+        margin-top: 10px;
+    }
+
+    .cabecalho > button {
+        margin-top: 10px;
+    }
+
+    #cadastro {
+        margin-top: 100px;
+    }
+}

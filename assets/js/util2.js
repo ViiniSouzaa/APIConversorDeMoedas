@@ -83,12 +83,14 @@ function converter(){
     var sigla = moedasPrincipal.options[moedasPrincipal.selectedIndex].value;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.overrideMimeType = ("application/JSON");
-    xmlhttp.open("GET", "https://v6.exchangerate-api.com/v6/50dd9fbe9f57bdc4af1b2bbd/latest/" + sigla, true);
+    xmlhttp.open("GET", "https://v6.exchangerate-api.com/v6/fe406c757024770e1e5eb9fd/latest/" + sigla, true);
     xmlhttp.onload =  function (){
         var resposta = JSON.parse(xmlhttp.responseText).conversion_rates;
         pegaValores(resposta);
     }
     xmlhttp.send();
+
+    document.getElementById('valor-desejado').value = 1;
 }
 var valorMoeda2;
 function pegaValores(resposta){
@@ -106,26 +108,39 @@ function pegaValores(resposta){
     }
     populaLista1(siglaPrincipal, nomeMoeda1);
     populaLista2(siglaSecundaria, valorMoeda2, nomeMoeda2);
+    converteValores(1);
 }
 
 function populaLista1(sigla, nome){
     var doc_sigla = document.getElementById('sigla-moeda-1');
     var doc_nome = document.getElementById('nome-moeda-1');
     var doc_valor =  document.getElementById('valor-moeda-1');
+    var doc_sigla2 = document.getElementById('sigla-moeda-3');
+    var doc_nome2 = document.getElementById('nome-moeda-3');
+    var doc_valor2 =  document.getElementById('valor-moeda-3');
 
     doc_sigla.innerHTML = sigla;
     doc_nome.innerHTML = nome;
     doc_valor.innerHTML = 1;
+    doc_sigla2.innerHTML = sigla;
+    doc_nome2.innerHTML = nome;
+    doc_valor2.innerHTML = 1;
 }
 
 function populaLista2(sigla, valor, nome){
     var doc_sigla = document.getElementById('sigla-moeda-2');
     var doc_nome = document.getElementById('nome-moeda-2');
     var doc_valor =  document.getElementById('valor-moeda-2');
+    var doc_sigla2 = document.getElementById('sigla-moeda-4');
+    var doc_nome2 = document.getElementById('nome-moeda-4');
+    var doc_valor2 =  document.getElementById('valor-moeda-4');
 
     doc_sigla.innerHTML = sigla;
     doc_nome.innerHTML = nome;
     doc_valor.innerHTML = valor;
+    doc_sigla2.innerHTML = sigla;
+    doc_nome2.innerHTML = nome;
+    doc_valor2.innerHTML = valor;
     
     document.getElementById('1').textContent = (1*valor).toFixed(4);
     document.getElementById('2').textContent = (2*valor).toFixed(4);
