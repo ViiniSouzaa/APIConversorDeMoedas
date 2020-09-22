@@ -38,7 +38,7 @@
                         <div>
                             <label for="username">e-mail:</label>
                             <br>
-                            <input type="email" id="username-cadastro" placeholder="Insira o e-mail" name="username" required onblur="validaEmail(this.checkValidity())" onfocus="tiraSpanEmail()">
+                            <input type="email" id="username-cadastro" placeholder="Insira o e-mail" name="username" required onblur="validaEmail(this.checkValidity(), this.value)" onfocus="tiraSpanEmail()">
                             <span id="span-email"></span>
                         </div>
                         <div>

@@ -54,6 +54,9 @@ const moedas = {
 }
 
 window.onload = function () {
+
+    verificaLogin();
+
     const moedasPrincipal = document.getElementById("selectPrincipal");
     const moedasSecundario = document.getElementById("selectSecundario");
     for (moeda in moedas) {
@@ -68,6 +71,15 @@ window.onload = function () {
     moedasSecundario.selectedIndex = 50;
     converter();
 };
+
+function verificaLogin(){
+    if(localStorage.getItem('token') != 0){
+        document.getElementById('pagina').style.display = 'block';
+    }else{
+        alert("Voce não está logado!");
+        location.href = 'index.html';
+    }
+}
 
 function inverter(){
     var moedasPrincipal = document.getElementById('selectPrincipal');
@@ -156,4 +168,9 @@ function populaLista2(sigla, valor, nome){
 function converteValores(valor){
     var valorConvertido = document.getElementById('valor-convertido');
     valorConvertido.value = (valor*valorMoeda2).toFixed(3);
+}
+
+function sair(){
+    location.href = 'index.html';
+    localStorage.setItem('token', "0");
 }

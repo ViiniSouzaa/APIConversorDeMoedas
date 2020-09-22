@@ -38,6 +38,7 @@ document.getElementById('btn-cadastrar')
             }
             document.getElementById("cadastro").style.display = "none";
             document.getElementById("login").style.display = "block";
+            alert("Cadastro feito com sucesso!");
         }
     });
 
@@ -50,17 +51,31 @@ document.getElementById('logar')
 
             login.onload = function (){
                 if(JSON.parse(login.responseText).token == localStorage.getItem('token')){
-                    location.href = 'index2.html';
+                    chamaSegundaTela();
                 }
             }
     });
+
+function chamaSegundaTela(){
+    var usuario = document.getElementById('username').value;
+    var senha =  document.getElementById('pass').value;
+    
+    console.log("user = " + usuario + " senha = " + senha);
+
+    if(usuario == localStorage.getItem('email') && senha == localStorage.getItem('senha')){
+        // document.getElementById('pagina').style.display = 'block';
+        location.href = 'index2.html';
+    }else{
+        alert("Usuario ou senha incorretos!");
+    }
+}
 
 var email_valido = false;
 var senha_valida = false;
 var senha_igual = false;
 
 var email_validado;
-function validaEmail(email){
+function validaEmail(email, email_digitado){
     var spanEmail = document.getElementById('span-email');
     if(!email){
         email_valido = false;
@@ -69,7 +84,7 @@ function validaEmail(email){
     }else {
         spanEmail.style.display = "none";
         email_valido = true;
-        email_validado = email;
+        email_validado = email_digitado;
     }
 }
 
